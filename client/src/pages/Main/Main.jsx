@@ -22,7 +22,7 @@ function Main() {
 
       {showModal && <JoinNowModal setShowModal={setShowModal} />}
 
-      <DataVis />
+      <DataVis setShowModal={setShowModal} />
 
       <main className="main">
         <div className="main__card-example">
