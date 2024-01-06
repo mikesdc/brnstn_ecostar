@@ -1,4 +1,4 @@
-import "./Upload.scss";
+import "./Main.scss";
 import Header from "../../components/Header/Header";
 
 const API_URL = process.env.REACT_APP_API_URL;
