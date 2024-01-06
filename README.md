@@ -11,6 +11,36 @@ https://www.figma.com/file/aNG7yFEEZpAHkkOgXZ5H9v/Untitled-(Copy)?type=design&no
 
 
 
+## Items
+
+### Bilal
+- Header/Navbar
+- Footer
+- Hero
+
+### Michael
+- React-App
+- Modal
+
+### Aman
+- Backend
+
+### Arjun
+- Calculator
+
+
+### Pending items:
+- Components
+  - EcoScore
+  - Leaderboard
+  - PartnerStores
+  - DataVisualizations
+  - CalculatorResults
+  - Resources (Call to Action)
+
+
+
+
 ## Table of Contents
 
 - [Installation](#installation)
