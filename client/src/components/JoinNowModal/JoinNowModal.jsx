@@ -7,11 +7,7 @@ import axios from "axios";
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8080";
 
 const JoinNowModal = ({
-  selectedWarehouseName,
-  selectedWarehouseId,
   setShowModal,
-  setSelectedWarehouseName,
-  setSelectedWarehouseId,
 }) => {
   // function for button - closing the modal
   const handleClose = () => {
@@ -19,19 +15,6 @@ const JoinNowModal = ({
     setShowModal(false);
   };
 
-  // function for button - deleting a warehouse
-  const handleDelete = () => {
-    axios
-      .delete(API_URL + "/warehouses/" + selectedWarehouseId)
-      .then((response) => {
-        setShowModal(false);
-        setSelectedWarehouseName(null);
-        setSelectedWarehouseId(null);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
 
   const [currentUser, setCurrentUser] = useState(null);
   const [formData, setFormData] = useState({
