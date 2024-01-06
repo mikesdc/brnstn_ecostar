@@ -3,12 +3,6 @@ import { NavLink, Link } from "react-router-dom";
 import React, { useState } from "react";
 import ecoStarLogo from "../../assets/logo/eco-star-logo.png";
 const Header = () => {
-  const [activePage, setActivePage] = useState("");
-
-  let isActive = (page) => {
-    setActivePage(page);
-  };
-
   return (
     <>
       <nav className="nav">
@@ -27,18 +21,18 @@ const Header = () => {
         <div className="nav__links-container">
           <ul className="nav__list">
             <li className="nav__list-item">
-              <NavLink to="" className="nav__link">
+              <NavLink to="/" className="nav__link">
                 Home
               </NavLink>
             </li>
 
             <li className="nav__list-item">
-              <NavLink to="" className="nav__link">
+              <NavLink to="/leaderboard" className="nav__link">
                 leaderboard
               </NavLink>
             </li>
             <li className="nav__list-item">
-              <NavLink to="" className="nav__link">
+              <NavLink to="/login" className="nav__link">
                 login
               </NavLink>
             </li>
