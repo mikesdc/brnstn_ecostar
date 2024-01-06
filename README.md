@@ -6,6 +6,10 @@ Ensure you are using Node v20.9.0
 
 
 
+Figma File:
+https://www.figma.com/file/aNG7yFEEZpAHkkOgXZ5H9v/Untitled-(Copy)?type=design&node-id=0-1&mode=design
+
+
 
 ## Table of Contents
 
@@ -35,4 +39,6 @@ Guidelines for contributing to the project.
 ## License
 
 Information about the project's license.
+
+
 # brnstn_ecostar
