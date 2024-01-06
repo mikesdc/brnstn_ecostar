@@ -10,11 +10,21 @@ const API_URL = process.env.REACT_APP_API_URL;
 function Main() {
   const [isloading, setIsLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
+  const [totalCarbonSaved, setTotalCarbonSaved] = useState("");
 
   const handleJoinNow = () => {
     console.log("Join Now");
     setShowModal(true);
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const currentTime = new Date().getTime();
+      setTotalCarbonSaved(Math.floor((currentTime / 10000) * 7.200000000000234582) - 1227300600);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>
@@ -22,7 +32,10 @@ function Main() {
 
       {showModal && <JoinNowModal setShowModal={setShowModal} />}
 
-      <DataVis setShowModal={setShowModal} />
+      <DataVis
+        setShowModal={setShowModal}
+        totalCarbonSaved={totalCarbonSaved}
+      />
 
       <main className="main">
         <div className="main__card-example">

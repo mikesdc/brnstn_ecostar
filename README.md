@@ -19,8 +19,9 @@ https://www.figma.com/file/aNG7yFEEZpAHkkOgXZ5H9v/Untitled-(Copy)?type=design&no
 - Hero
 
 ### Michael
-- React-App
-- Modal
+- Basic React-App Set Up (Complete)
+- Modal (Complete)
+- DataVisualizations (Complete)
 
 ### Aman
 - Backend
@@ -34,7 +35,6 @@ https://www.figma.com/file/aNG7yFEEZpAHkkOgXZ5H9v/Untitled-(Copy)?type=design&no
   - EcoScore
   - Leaderboard
   - PartnerStores
-  - DataVisualizations
   - CalculatorResults
   - Resources (Call to Action)
 
