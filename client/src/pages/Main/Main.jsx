@@ -1,6 +1,7 @@
 import "./Main.scss";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import DataVis from "../../components/DataVis/DataVis";
 import { useState, useEffect } from "react";
 import JoinNowModal from "../../components/JoinNowModal/JoinNowModal";
 
@@ -19,7 +20,9 @@ function Main() {
     <>
       <Header />
 
-      {showModal && <JoinNowModal setShowModal={setShowModal}/>}
+      {showModal && <JoinNowModal setShowModal={setShowModal} />}
+
+      <DataVis />
 
       <main className="main">
         <div className="main__card-example">
