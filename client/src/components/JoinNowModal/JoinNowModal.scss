@@ -3,10 +3,6 @@
 
 @import "../../styles/partials/global";
 
-:root {
-  --join-now-modal-card-width-tablet: 30rem;
-  --join-now-modal-card-height-tablet: 45rem;
-}
 
 .join-now-modal {
   &__overlay {
@@ -25,8 +21,7 @@
   }
 
   &__container {
-    width: var(--join-now-modal-card-width-tablet);
-    height: var(--join-now-modal-card-height-tablet);
+    width: 30rem;
     margin: auto;
     background-color: $green-light;
     border-radius: 0.5rem;
@@ -37,6 +32,7 @@
   }
 
   &__close {
+    margin-top: 1rem;
     margin-left: auto;
     margin-right: -2rem;
 
@@ -68,7 +64,7 @@
 
   &__title {
     margin-top: initial;
-    margin-bottom: 1rem;
+    margin-bottom: 1.7rem;
 
     h1 {
       font-size: 1.8rem;
