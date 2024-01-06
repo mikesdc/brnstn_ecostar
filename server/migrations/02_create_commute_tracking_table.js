@@ -12,7 +12,7 @@ exports.up = function (knex) {
         .onUpdate('CASCADE')
         .onDelete('CASCADE');
       table
-        .dateTime("date").defaultTo(knex.fn.now(6));
+        .date("commute_date").defaultTo(knex.raw('(CURRENT_DATE())'));
       table
         .string("start_location").notNullable();
       table
@@ -20,9 +20,9 @@ exports.up = function (knex) {
       table
         .float("distance");
       table
-        .string("commute_mode");
+        .float("co2_saved_kg");
       table
-        .float("co2_saved");
+        .integer("eco_score")
     });
   };
   
