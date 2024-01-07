@@ -1,6 +1,10 @@
 import "./Header.scss";
 
-const Header = () => {
+const Header = ({ setShowModal }) => {
+  const handleJoinNow = () => {
+    setShowModal(true);
+  };
+
   return (
     <>
       <div className="wrapper">
