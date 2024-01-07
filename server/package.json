@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "db:migrate": "knex migrate:latest",
-    "db:seed": "knex seed:run"
+    "migrate": "npx knex migrate:latest",
+    "seed": "npx knex seed:run"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,6 @@
     "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.2"
   }
 }
