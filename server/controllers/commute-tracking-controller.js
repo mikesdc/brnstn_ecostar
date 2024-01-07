@@ -5,7 +5,23 @@ const getSingleUser = (req, res) => {
 	  .where({ user_id: req.params.id })
 	  .then((item) => {
 		if (item == null) {
-		  res.status(404).send(`Item id: ${req.params.id} not found`);
+		  res.status(404).send(`User id: ${req.params.id} not found`);
+		} else {
+		  res.status(200).send(item);
+		}
+	  })
+	  .catch((err) => {
+		res.status(500).send(`${err}`);
+	  });
+  };
+
+  const getTotalScore = (req, res) => {
+	knex("commute_tracking as c")
+	  .sum("eco_score")
+	  .where({ user_id: req.params.id })
+	  .then((item) => {
+		if (item == null) {
+		  res.status(404).send(`User id: ${req.params.id} not found`);
 		} else {
 		  res.status(200).send(item);
 		}
@@ -28,7 +44,7 @@ const getSingleUser = (req, res) => {
 	  .insert(req.body)
 	  .then((result) => {
 		  console.log(`New recorded added succesfully ${result}`);
-		  return knex("users").where({ id: result[0] });
+		  return knex("users").where({ id: result[0]});
 		})
 	  .then((newItem) => {
 		  res.status(201).json(newItem);
@@ -41,5 +57,6 @@ const getSingleUser = (req, res) => {
 
 module.exports = {
 	getSingleUser,
-	createNewRecord
+	createNewRecord,
+	getTotalScore
 };
