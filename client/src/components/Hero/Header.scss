@@ -2,3 +2,13 @@
 @use "../../styles/partials/mixins" as *;
 
 @import "../../styles/partials/global";
+
+.hero {
+  background-image: url("../../assets/images/eco-hero-img.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 82vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
