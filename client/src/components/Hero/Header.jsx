@@ -2,6 +2,9 @@ import "./Header.scss";
 
 const Header = () => {
   return (
+    <>
+      <h1>Hero section</h1>
+    </>
   );
 };
 

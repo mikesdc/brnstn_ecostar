@@ -3,6 +3,7 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { useState, useEffect } from "react";
 import JoinNowModal from "../../components/JoinNowModal/JoinNowModal";
+import Hero from "../../components/Hero/Header";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -18,8 +19,9 @@ function Main() {
   return (
     <>
       <Header />
+      <Hero />
 
-      {showModal && <JoinNowModal setShowModal={setShowModal}/>}
+      {showModal && <JoinNowModal setShowModal={setShowModal} />}
 
       <main className="main">
         <div className="main__card-example">
