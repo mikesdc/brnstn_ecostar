@@ -1,5 +1,6 @@
 import "./Main.scss";
 import Header from "../../components/Header/Header";
+import Calculator from "../../components/Calculator/Calculator";
 import Footer from "../../components/Footer/Footer";
 import DataVis from "../../components/DataVis/DataVis";
 import { useState, useEffect } from "react";
@@ -45,7 +46,7 @@ function Main() {
           </div>
         </div>
       </main>
-
+      <Calculator />
       <Footer />
     </>
   );
