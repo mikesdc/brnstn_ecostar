@@ -12,6 +12,10 @@ router
   .get(userController.getTotalUsers);
 
 router
+  .route("/login")
+  .post(userController.login);
+
+router
   .route("/:id")
   .get(userController.getSingleUser);
 
