@@ -15,7 +15,9 @@ const Header = ({ setShowModal }) => {
               minimizing your carbon foot print by using EcoStar<span>©</span>
             </h1>
             <div className="hero__button-container">
-              <button className="hero__button">Join Now</button>
+              <button className="hero__button" onClick={handleJoinNow}>
+                Join Now
+              </button>
             </div>
           </div>
         </section>
