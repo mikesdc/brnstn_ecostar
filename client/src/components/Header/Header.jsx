@@ -28,7 +28,7 @@ const Header = () => {
 
             <li className="nav__list-item">
               <NavLink to="/ecoscore" className="nav__link">
-                leaderboard
+                ecopoints
               </NavLink>
             </li>
             <li className="nav__list-item">

@@ -1,9 +1,9 @@
 import "./DataVis.scss";
 
-const DataVis = ({ setShowModal, totalCarbonSaved }) => {
+const DataVis = ({ setShowJoinModal, totalCarbonSaved }) => {
   const handleJoinNow = () => {
     console.log("Join Now");
-    setShowModal(true);
+    setShowJoinModal(true);
   };
 
   return (

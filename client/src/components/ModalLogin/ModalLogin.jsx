@@ -1,18 +1,18 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import "./JoinNowModal.scss";
+import "./ModalJoinNow.scss";
 import closeIcon from "../../assets/icons/close-24px.svg";
 import axios from "axios";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8080";
 
-const JoinNowModal = ({
-  setShowModal,
+const ModalJoinNow = ({
+  setShowJoinModal,
 }) => {
   // function for button - closing the modal
   const handleClose = () => {
     setFormData(blankFormData);
-    setShowModal(false);
+    setShowJoinModal(false);
   };
 
 
@@ -144,4 +144,4 @@ const JoinNowModal = ({
   );
 };
 
-export default JoinNowModal;
+export default ModalJoinNow;

@@ -3,12 +3,12 @@ import { useState, useEffect } from "react";
 
 const EcoScore = () => {
   const [isloading, setIsLoading] = useState(true);
-  const [showModal, setShowModal] = useState(false);
+  const [showJoinModal, setShowJoinModal] = useState(false);
   const [totalCarbonSaved, setTotalCarbonSaved] = useState("");
 
   const handleJoinNow = () => {
     console.log("Join Now");
-    setShowModal(true);
+    setShowJoinModal(true);
   };
 
   return (

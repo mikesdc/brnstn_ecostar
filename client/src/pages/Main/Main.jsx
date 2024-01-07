@@ -4,52 +4,53 @@ import Calculator from "../../components/Calculator/Calculator";
 import Footer from "../../components/Footer/Footer";
 import DataVis from "../../components/DataVis/DataVis";
 import { useState, useEffect } from "react";
-import JoinNowModal from "../../components/JoinNowModal/JoinNowModal";
+import ModalJoinNow from "../../components/ModalJoinNow/ModalJoinNow";
+import { motion, AnimatePresence } from "framer-motion";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
 function Main() {
   const [isloading, setIsLoading] = useState(true);
-  const [showModal, setShowModal] = useState(false);
+  const [showJoinModal, setShowJoinModal] = useState(false);
   const [totalCarbonSaved, setTotalCarbonSaved] = useState("");
 
   const handleJoinNow = () => {
     console.log("Join Now");
-    setShowModal(true);
+    setShowJoinModal(true);
   };
 
+  // For the data visualization component.
+  // This block of code generates a number that increases and updates the DataVis component every second.
+  // This represents a simulation of the total carbon saved by the users of the app.
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const currentTime = new Date().getTime();
+      setTotalCarbonSaved(
+        Math.floor((currentTime - 1 * 1704649460700) * (3.141592 / 10000))
+      );
+    }, 1000);
 
-// For the data visualization component.
-// This block of code generates a number that increases and updates the DataVis component every second.
-// This represents a simulation of the total carbon saved by the users of the app.
-                useEffect(() => {
-                  const interval = setInterval(() => {
-                    const currentTime = new Date().getTime();
-                    setTotalCarbonSaved(Math.floor((currentTime / 10000) * 7.200000000000234582) - 1227300600);
-                  }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
-                  return () => clearInterval(interval);
-                }, []);
-
-
-// // This block of code fetches the total carbon saved from the database and updates the DataVis component.
-//   useEffect(() => {
-//     fetch(`${API_URL}/totalQuantity`)
-//       .then((res) => res.json())
-//       .then((data) => {
-//         setTotalCarbonSaved(data[0].total_co2_saved_kg);
-//       });
-//   } , []);
-
+  // // This block of code fetches the total carbon saved from the database and updates the DataVis component.
+  //   useEffect(() => {
+  //     fetch(`${API_URL}/totalQuantity`)
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         setTotalCarbonSaved(data[0].total_co2_saved_kg);
+  //       });
+  //   } , []);
 
   return (
     <>
       <Header />
-
-      {showModal && <JoinNowModal setShowModal={setShowModal} />}
+      <AnimatePresence>
+        {showJoinModal && <ModalJoinNow setShowJoinModal={setShowJoinModal} />}
+      </AnimatePresence>
 
       <DataVis
-        setShowModal={setShowModal}
+        setShowJoinModal={setShowJoinModal}
         totalCarbonSaved={totalCarbonSaved}
       />
 

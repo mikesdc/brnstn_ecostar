@@ -6,18 +6,18 @@ import Leaderboard from "../../components/Leaderboard/Leaderboard";
 import Partnerships from "../../components/Partnerships/Partnerships";
 import EcoNumber from "../../components/EcoNumber/EcoNumber";
 import { useState, useEffect } from "react";
-import JoinNowModal from "../../components/JoinNowModal/JoinNowModal";
+import ModalJoinNow from "../../components/ModalJoinNow/ModalJoinNow";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
 function EcoScore() {
   const [isloading, setIsLoading] = useState(true);
-  const [showModal, setShowModal] = useState(false);
+  const [showJoinModal, setShowJoinModal] = useState(false);
   const [totalCarbonSaved, setTotalCarbonSaved] = useState("");
 
   const handleJoinNow = () => {
     console.log("Join Now");
-    setShowModal(true);
+    setShowJoinModal(true);
   };
 
   useEffect(() => {
@@ -33,7 +33,7 @@ function EcoScore() {
     <>
       <Header />
 
-      {showModal && <JoinNowModal setShowModal={setShowModal} />}
+      {showJoinModal && <ModalJoinNow setShowJoinModal={setShowJoinModal} />}
 
       <EcoNumber />
       <Leaderboard />
