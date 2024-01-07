@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import ecoStarLogo from "../../assets/logo/eco-star-logo.png";
 const Header = () => {
   return (
-    <>
+    <div className="nav-container">
       <nav className="nav">
-        <NavLink to="/" className="nav__logo-container">
+        <Link to="/" className="nav__logo-container">
           <h1 className="nav__logo">
             Eco<span>Star</span>
           </h1>
@@ -17,7 +17,7 @@ const Header = () => {
               alt="eco-star-logo"
             ></img>
           </div>
-        </NavLink>
+        </Link>
         <div className="nav__links-container">
           <ul className="nav__list">
             <li className="nav__list-item">
@@ -27,7 +27,7 @@ const Header = () => {
             </li>
 
             <li className="nav__list-item">
-              <NavLink to="/leaderboard" className="nav__link">
+              <NavLink to="/ecoscore" className="nav__link">
                 leaderboard
               </NavLink>
             </li>
@@ -39,7 +39,7 @@ const Header = () => {
           </ul>
         </div>
       </nav>
-    </>
+    </div>
   );
 };
 
