@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import JoinNowModal from "../../components/JoinNowModal/JoinNowModal";
 import Partnerships from "../../components/Partnerships/Partnerships";
 
+import Hero from "../../components/Hero/Header";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -20,18 +21,33 @@ function Main() {
     setShowModal(true);
   };
 
+  // For the data visualization component.
+  // This block of code generates a number that increases and updates the DataVis component every second.
+  // This represents a simulation of the total carbon saved by the users of the app.
   useEffect(() => {
     const interval = setInterval(() => {
       const currentTime = new Date().getTime();
-      setTotalCarbonSaved(Math.floor((currentTime / 10000) * 7.200000000000234582) - 1227300600);
+      setTotalCarbonSaved(
+        Math.floor((currentTime / 10000) * 7.200000000000234582) - 1227300600
+      );
     }, 1000);
 
     return () => clearInterval(interval);
   }, []);
 
+  // // This block of code fetches the total carbon saved from the database and updates the DataVis component.
+  //   useEffect(() => {
+  //     fetch(`${API_URL}/totalQuantity`)
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         setTotalCarbonSaved(data[0].total_co2_saved_kg);
+  //       });
+  //   } , []);
+
   return (
     <>
       <Header />
+      <Hero setShowModal={setShowModal} />
 
       {showModal && <JoinNowModal setShowModal={setShowModal} />}
 
