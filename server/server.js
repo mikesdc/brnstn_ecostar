@@ -17,16 +17,22 @@ app.use(express.json());
 
 // home route
 app.get("/", function (req, res) {
-	res.send("welcome to instock-api");
+	res.send("Welcome to EcoStar API");
 });
 
 // Routes
-const warehouseRoutes = require("./routes/warehouses");
-app.use("/api/warehouses", warehouseRoutes);
+const commuteTrackingRoutes = require("./routes/commute_tracking");
+app.use("/commute", commuteTrackingRoutes);
 
-const inventoryRoutes = require("./routes/inventories");
-app.use("/api/inventories", inventoryRoutes);
+const userRoutes = require("./routes/users");
+app.use("/users", userRoutes);
+
+const partnerRoutes = require("./routes/partners");
+app.use("/partners", partnerRoutes);
+
+const totalQuantityRoutes = require("./routes/total_quantity");
+app.use("/totalQuantity", totalQuantityRoutes);
 
 app.listen(PORT, function () {
-	console.log("Instock-api launched!");
+	console.log("Ecostar-api launched!");
 });
