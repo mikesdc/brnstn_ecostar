@@ -74,9 +74,36 @@ const createNewUser = (req, res) => {
     });
 };
 
+const login = (req, res) => {
+  if (
+    !req.body.email ||
+    !req.body.password
+  ) {
+    res.status(400).send("Please fill in all fields");
+    return;
+  }
+  knex("users as u")
+    .where({ email: req.body.email})
+    .then((item) => {
+      if (item == null) {
+        res.status(404).send(`User not found`);
+      }
+      else if (item[0].password !== req.body.password) {
+        res.status(404).send(`User password does not match`);
+      } 
+      else {
+        res.status(200).send(item[0]);
+      }
+    })
+    .catch((err) => {
+      res.status(500).send(`${err}`);
+    });
+};
+
 module.exports = {
   getAllUsers,
   getTotalUsers,
   getSingleUser,
   createNewUser,
+  login,
 };

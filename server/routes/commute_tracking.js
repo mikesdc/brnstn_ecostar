@@ -8,6 +8,10 @@ router
 
 router
 	.route("/:id")
-	.get(commuteTrackingController.getSingleUser)
+	.get(commuteTrackingController.getSingleUser);
+
+router
+	.route("/total/:id")
+	.get(commuteTrackingController.getTotalScore);
 
 module.exports = router;

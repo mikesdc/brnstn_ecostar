@@ -6,6 +6,7 @@ import DataVis from "../../components/DataVis/DataVis";
 import { useState, useEffect } from "react";
 import ModalJoinNow from "../../components/ModalJoinNow/ModalJoinNow";
 import { motion, AnimatePresence } from "framer-motion";
+import Hero from "../../components/Hero/Header";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -48,6 +49,8 @@ function Main() {
       <AnimatePresence>
         {showJoinModal && <ModalJoinNow setShowJoinModal={setShowJoinModal} />}
       </AnimatePresence>
+      
+      <Hero />
 
       <DataVis
         setShowJoinModal={setShowJoinModal}
