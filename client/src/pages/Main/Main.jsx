@@ -50,7 +50,7 @@ function Main() {
         {showJoinModal && <ModalJoinNow setShowJoinModal={setShowJoinModal} />}
       </AnimatePresence>
       
-      <Hero />
+      <Hero setShowModal={setShowModal} />
 
       <DataVis
         setShowJoinModal={setShowJoinModal}
