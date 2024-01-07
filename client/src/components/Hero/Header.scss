@@ -11,4 +11,31 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+
+  &__container {
+    width: 45%;
+    padding-right: 4rem;
+  }
+
+  &__title {
+    font-size: 2rem;
+    line-height: 2.6rem;
+    color: $green-white;
+  }
+
+  &__button-container {
+    margin-top: 1rem;
+  }
+
+  &__button {
+    height: 3rem;
+    border-radius: 4px;
+    width: 40%;
+    background-color: $green-main-d2;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    color: $green-white;
+    transition: 0.3s ease-in-out;
+  }
 }
