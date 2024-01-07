@@ -19,34 +19,33 @@ function Main() {
     setShowModal(true);
   };
 
+  // For the data visualization component.
+  // This block of code generates a number that increases and updates the DataVis component every second.
+  // This represents a simulation of the total carbon saved by the users of the app.
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const currentTime = new Date().getTime();
+      setTotalCarbonSaved(
+        Math.floor((currentTime / 10000) * 7.200000000000234582) - 1227300600
+      );
+    }, 1000);
 
-// For the data visualization component.
-// This block of code generates a number that increases and updates the DataVis component every second.
-// This represents a simulation of the total carbon saved by the users of the app.
-                useEffect(() => {
-                  const interval = setInterval(() => {
-                    const currentTime = new Date().getTime();
-                    setTotalCarbonSaved(Math.floor((currentTime / 10000) * 7.200000000000234582) - 1227300600);
-                  }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
-                  return () => clearInterval(interval);
-                }, []);
-
-
-// // This block of code fetches the total carbon saved from the database and updates the DataVis component.
-//   useEffect(() => {
-//     fetch(`${API_URL}/totalQuantity`)
-//       .then((res) => res.json())
-//       .then((data) => {
-//         setTotalCarbonSaved(data[0].total_co2_saved_kg);
-//       });
-//   } , []);
-
+  // // This block of code fetches the total carbon saved from the database and updates the DataVis component.
+  //   useEffect(() => {
+  //     fetch(`${API_URL}/totalQuantity`)
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         setTotalCarbonSaved(data[0].total_co2_saved_kg);
+  //       });
+  //   } , []);
 
   return (
     <>
       <Header />
-      <Hero />
+      <Hero setShowModal={setShowModal} />
 
       {showModal && <JoinNowModal setShowModal={setShowModal} />}
 
