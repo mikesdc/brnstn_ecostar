@@ -1,5 +1,135 @@
-@use "../../styles/partials/variables" as *;
-@use "../../styles/partials/mixins" as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
 
-@import "../../styles/partials/global";
+@import '../../styles/partials/global';
 
+.calculator-main {
+  display: flex;
+  flex-direction: row;
+  background-color: $green-main;
+  width: 100vw;
+  height: 100vh;
+
+  &__card-example {
+    display: flex;
+    align-items: baseline;
+    flex-grow: 1;
+    width: 10rem;
+    margin: 5rem 5rem;
+    border-radius: 1rem;
+    background-color: $green-white;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+  }
+}
+
+// --------------- CARD: LEFT SIDE ---------------
+.card-left {
+  width: 50%;
+  align-self: center;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    height: 40rem;
+    align-items: center;
+    margin: 5rem 5rem;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    color: rgb(62, 63, 77);
+    font-weight: 600;
+    letter-spacing: 0.4px;
+
+    margin-bottom: 4rem;
+  }
+
+  &__text {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: rgb(56, 66, 84);
+  }
+}
+
+// --------------- CARD: RIGHT SIDE ---------------
+.card-right {
+  width: 50%;
+  align-self: center;
+  display: flex;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    height: 40rem;
+    align-items: center;
+
+    margin: 5rem 5rem;
+
+    &-card {
+      display: flex;
+      font-size: 1rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 2rem rgba(0, 0, 0, 0.25);
+      height: 35rem;
+      width: 33rem;
+      align-items: center;
+      justify-content: start;
+      flex-direction: column;
+    }
+  }
+}
+
+.calc {
+  &-result {
+    display: flex;
+    flex-direction: column;
+    line-height: 2rem;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    margin-top: 3rem;
+    align-items: center;
+
+    padding: 1rem;
+    width: 15rem;
+    border-radius: 4rem;
+    background-color: rgb(236, 236, 236);
+    color: #636363;
+  }
+
+  &__input-group label {
+    font-size: 1.15rem;
+    line-height: 3rem;
+  }
+
+  &__input-group input, select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1.2rem;
+  }
+
+  &__button {
+    font-size: 1.1rem;
+    font-weight: 400;
+    width: 9rem;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    color: white;
+    background-color: $green-main;
+    border: none;
+    border-radius: 4rem;
+
+    &:hover {
+      background-color: #5870a9;
+      color: white;
+    }
+  }
+}
