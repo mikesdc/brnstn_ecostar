@@ -7,7 +7,6 @@ import Partnerships from "../../components/Partnerships/Partnerships";
 import EcoNumber from "../../components/EcoNumber/EcoNumber";
 import ModalJoinNow from "../../components/ModalJoinNow/ModalJoinNow";
 import ModalLogin from "../../components/ModalLogin/ModalLogin";
-
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
