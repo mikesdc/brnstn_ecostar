@@ -42,7 +42,7 @@
     color: rgb(62, 63, 77);
     font-weight: 600;
     letter-spacing: 0.4px;
-
+    align-self: baseline;
     margin-bottom: 4rem;
   }
 
@@ -51,6 +51,7 @@
     font-weight: 400;
     margin-bottom: 1rem;
     color: rgb(56, 66, 84);
+    align-self: baseline;
   }
 }
 
@@ -86,7 +87,6 @@
   &-result {
     display: flex;
     flex-direction: column;
-    // line-height: 1.4rem;
     justify-content: center;
     font-size: 1.2rem;
     font-weight: 600;
@@ -96,7 +96,7 @@
     width: 15rem;
     border-radius: 4rem;
     background-color: $green-main;
-    color:white;
+    color: white;
     min-height: 3rem;
   }
 
@@ -105,14 +105,15 @@
     line-height: 3rem;
   }
 
-  &__input-group input, select {
+  &__input-group input,
+  select {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
     margin-top: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 1.0rem;
+    font-size: 1rem;
   }
 
   &__buttons {
@@ -135,7 +136,6 @@
     border: none;
     border-radius: 4rem;
     width: 100%;
-
 
     &:hover {
       background-color: #5870a9;

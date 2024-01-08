@@ -14,8 +14,8 @@ const Calculator = () => {
   const [dateInput, setDateInput] = useState(today);
 
 
-  // const [loggedIn, setLoggedIn] = useState(true); // For testing
-  const [loggedIn, setLoggedIn] = useState(false); // For testing
+  const [loggedIn, setLoggedIn] = useState(true); // For testing
+  // const [loggedIn, setLoggedIn] = useState(false); // For testing
 
   // build new object to hold data
   let [formData, setFormData] = useState({
