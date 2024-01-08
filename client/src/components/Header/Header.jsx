@@ -40,7 +40,7 @@ const Header = ({ setShowJoinModal, setShowLoginModal }) => {
               </NavLink>
             </li>
             <li className="nav__list-item">
-              <Link to="/" className="nav__link" onClick={handleOpenLogin}>
+              <Link className="nav__link" onClick={handleOpenLogin}>
                 login
               </Link>
             </li>
