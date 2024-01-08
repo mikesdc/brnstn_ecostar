@@ -14,4 +14,8 @@ router
 	.route("/total/:id")
 	.get(commuteTrackingController.getTotalScore);
 
+router
+	.route("/carbon/:id")
+	.get(commuteTrackingController.getTotalCarbon);
+
 module.exports = router;
