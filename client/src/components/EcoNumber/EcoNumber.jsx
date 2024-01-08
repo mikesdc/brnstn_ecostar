@@ -9,10 +9,6 @@ const EcoScore = () => {
   const [totalCarbonSaved, setTotalCarbonSaved] = useState(100);
   const [userName, setUserName] = useState("EcoStar");
 
-  const handleJoinNow = () => {
-    console.log("Join Now");
-    setShowJoinModal(true);
-  };
 
   return (
 <main className="data-vis__main">

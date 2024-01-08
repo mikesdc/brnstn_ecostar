@@ -4,12 +4,10 @@ import Header from "../../components/Header/Header";
 import Calculator from "../../components/Calculator/Calculator";
 import Footer from "../../components/Footer/Footer";
 import DataVis from "../../components/DataVis/DataVis";
-import ModalJoinNow from "../../components/ModalJoinNow/ModalJoinNow";
 import ModalLogin from "../../components/ModalLogin/ModalLogin";
 import Hero from "../../components/Hero/Hero";
-import JoinNowModal from "../../components/JoinNowModal/JoinNowModal";
+import ModalJoinNow from "../../components/ModalJoinNow/ModalJoinNow";
 import Partnerships from "../../components/Partnerships/Partnerships";
-import Hero from "../../components/Hero/Header";
 
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
