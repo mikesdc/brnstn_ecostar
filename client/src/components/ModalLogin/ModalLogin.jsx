@@ -22,8 +22,6 @@ const ModalLogin = ({ setShowJoinModal, setShowLoginModal }) => {
   };
 
   // const [currentUser, setCurrentUser] = useState(null);
-  const currentUser = sessionStorage.getItem("userData");
-  console.log(currentUser.id);
   
   const [loginFormData, setLoginFormData] = useState({
     email: "",
