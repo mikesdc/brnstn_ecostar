@@ -1,16 +1,21 @@
 import './Calculator.scss';
 import { useState, useEffect } from 'react';
+import axios from 'axios';
+
 
 const Calculator = () => {
+
+  const today = new Date().toISOString().split('T')[0];   // Format today's date as YYYY-MM-DD
+
   // state to hold carbon footprint result
   const [carbonFootprint, setCarbonFootprint] = useState(null);
   const [carbonFootprintSaved, setCarbonFootprintSaved] = useState(null);
   const [pointsEarned, setPointsEarned] = useState('');
-  const [dateInput, setDateInput] = useState('');
+  const [dateInput, setDateInput] = useState(today);
 
 
-  const [loggedIn, setLoggedIn] = useState(true); // For testing
-  // const [loggedIn, setLoggedIn] = useState(false); // For testing
+  // const [loggedIn, setLoggedIn] = useState(true); // For testing
+  const [loggedIn, setLoggedIn] = useState(false); // For testing
 
   // build new object to hold data
   let [formData, setFormData] = useState({
@@ -18,7 +23,6 @@ const Calculator = () => {
     distance: '',
     workDays: '',
     newPoints: '',
-    currentDate: ''
   });
 
   // emissions factors for each transport method
@@ -65,38 +69,10 @@ const Calculator = () => {
     setPointsEarned(points.toFixed(0)); // Set the points with no decimal places
   };
 
-  // event handler for form submission
-  const submitHandler = (e) => {
-    e.preventDefault();
-    calculateFootprintSaved();
-
-    // Get the current date + format it
-    const today = new Date();
-    const formattedDate = today.toISOString().split('T')[0];  // Format: YYYY-MM-DD
-
-    let newFormData;
-    // const pointsEarned = pointsEarned
-    if (loggedIn) {
-      calculateFootprintSaved();
-      newFormData = {
-        ...formData,
-        newPoints: pointsEarned,
-        currentDate: formattedDate  // Set the current date
-
-      };
-    } else {
-      calculateFootprint();
-      newFormData = {
-        ...formData,
-        currentDate: formattedDate  // Set the current date
-      };
-    }
-    setFormData(newFormData);
-    console.log('FormData=', newFormData);
-  };
 
   // event handler that updates state, handles multiple form input field changes
   const formHandler = (e) => {
+    e.preventDefault();
     const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
@@ -104,12 +80,40 @@ const Calculator = () => {
     }));
   };
 
-  // Effect to clear results when form data changes
-  useEffect(() => {
-    setCarbonFootprint(null);
-    setCarbonFootprintSaved(null);
-    setPointsEarned(null);
-  }, [formData]); // Dependency array includes formData
+  // event handler for calculation
+  const calcHandler = (e) => {
+    e.preventDefault();
+    calculateFootprintSaved();
+    if (loggedIn) {
+      let newFormData;
+      const today = new Date(); // Get the current date + format it
+      const formattedDate = today.toISOString().split('T')[0];  // Format: YYYY-MM-DD
+      calculateFootprintSaved();
+      newFormData = {
+        ...formData,
+        submissionDate: formattedDate,  // Set the current date
+        tripDate: dateInput,
+        newPoints: pointsEarned,
+      };
+      console.log('newFormData=', newFormData);
+    } else {
+      calculateFootprint();
+    }
+  }
+
+  // event handler for form submission
+  const submitHandler = (e) => {
+    e.preventDefault();
+    calcHandler(e);
+    alert('Points Added! 👏');
+  };
+
+  // // Effect to clear results when form data changes -- breaks when you calculate (doesnt display points))
+  // useEffect(() => {
+  //   setCarbonFootprint(null);
+  //   setCarbonFootprintSaved(null);
+  //   setPointsEarned(null);
+  // }, [formData]); // Dependency array includes formData
 
 
   return (
@@ -121,7 +125,7 @@ const Calculator = () => {
               {loggedIn ? (
                 <>
                   <h1 className='card-left__header'>
-                    Money printer go brrrrrr 🤑
+                    Money printer go brrrrr 🤑
                     <br />
                     Add a trip to stack your points!
                   </h1>
@@ -158,16 +162,9 @@ const Calculator = () => {
                     </h2>
                     <div className='calc-result'>
                       POINTS STACKED
-                      <p className='result'>{pointsEarned}</p>
+                      <div className='result'>{pointsEarned}</div>
                     </div>
-                    <div className='calc__input-group'>
-                      <input
-                        type="date"
-                        value={dateInput}
-                        onChange={(e) => setDateInput(e.target.value)}
-                        name="dateInput"
-                      />
-                  </div>
+
                   </>
                 ) : (
                   <h2 className='calc-result'>
@@ -181,11 +178,21 @@ const Calculator = () => {
                 )}
 
                 <form onSubmit={submitHandler}>
-                  <div className='calc__input-group'>
+                  <div className='calc__input-group'>Date
+                    <input
+                      required
+                      type="date"
+                      value={dateInput}
+                      onChange={(e) => setDateInput(e.target.value)}
+                      name="dateInput"
+                      min="2023-01-01"
+                      max={new Date().toISOString().split("T")[0]}
+                    />
                   </div>
                   <div className='calc__input-group'>
                     <label>Transport Method: </label>
                     <select
+                      required
                       value={formData.transportMethod}
                       name='transportMethod'
                       onChange={formHandler}
@@ -201,6 +208,7 @@ const Calculator = () => {
                   <div className='calc__input-group'>
                     <label>Distance to Work (KM's): </label>
                     <input
+                      required
                       type='number'
                       value={formData.distance}
                       placeholder='Enter distance to work'
@@ -211,6 +219,7 @@ const Calculator = () => {
                   <div className='calc__input-group'>
                     <label>Work Days per Week:</label>
                     <input
+                      required
                       type='number'
                       value={formData.workDays}
                       placeholder='Enter work days per week'
@@ -224,12 +233,14 @@ const Calculator = () => {
                     <div className='calc__buttons'>
                       <button
                         className='calc__button'
-                        type='submit'
-                        onSubmit={submitHandler}
+                        type='button'
+                        onClick={calcHandler}
                       >
                         Calculate
                       </button>
-                      <button className='calc__button' type='submit'>
+                      <button
+                        className='calc__button'
+                        type='submit'>
                         Submit
                       </button>
                     </div>
@@ -237,8 +248,8 @@ const Calculator = () => {
                     <>
                       <button
                         className='calc__button'
-                        type='submit'
-                        onSubmit={submitHandler}
+                        type='button'
+                        onClick={calcHandler}
                       >
                         Calculate
                       </button>
