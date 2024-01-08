@@ -22,7 +22,9 @@ const ModalLogin = ({ setShowJoinModal, setShowLoginModal }) => {
   };
 
   // const [currentUser, setCurrentUser] = useState(null);
-
+  const currentUser = sessionStorage.getItem("userData");
+  console.log(currentUser.id);
+  
   const [loginFormData, setLoginFormData] = useState({
     email: "",
     password: "",
@@ -40,8 +42,12 @@ const ModalLogin = ({ setShowJoinModal, setShowLoginModal }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(API_URL, loginFormData);
+      const response = await axios.post(API_URL+"/users/login", loginFormData);
       console.log(response.data);
+      sessionStorage.setItem("userId", response.data.id);
+      sessionStorage.setItem("userName", response.data.first_name);
+      sessionStorage.setItem("userLoggedIn", true);
+      setShowLoginModal(false);
     } catch (error) {
       console.error("Error posting data:", error);
     }
