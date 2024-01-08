@@ -7,6 +7,9 @@ import DataVis from "../../components/DataVis/DataVis";
 import ModalJoinNow from "../../components/ModalJoinNow/ModalJoinNow";
 import ModalLogin from "../../components/ModalLogin/ModalLogin";
 import Hero from "../../components/Hero/Hero";
+import JoinNowModal from "../../components/JoinNowModal/JoinNowModal";
+import Partnerships from "../../components/Partnerships/Partnerships";
+import Hero from "../../components/Hero/Header";
 
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
@@ -88,6 +91,7 @@ function Main() {
       />
 
       <Calculator />
+      <Partnerships />
       <Footer />
     </>
   );
