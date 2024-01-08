@@ -10,6 +10,7 @@ import Nike from '../../assets/logo/nike.svg';
 
 const Partnerships = () => {
 
+
   return (
     // <div className='background' // Repeating Background Image (Leaf)>
     <div className="partnerships-main">

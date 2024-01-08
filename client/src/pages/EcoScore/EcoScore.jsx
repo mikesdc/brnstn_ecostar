@@ -1,39 +1,49 @@
 import "./EcoScore.scss";
+
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import DataVis from "../../components/DataVis/DataVis";
 import Leaderboard from "../../components/Leaderboard/Leaderboard";
 import Partnerships from "../../components/Partnerships/Partnerships";
 import EcoNumber from "../../components/EcoNumber/EcoNumber";
-import { useState, useEffect } from "react";
-import JoinNowModal from "../../components/JoinNowModal/JoinNowModal";
+import ModalJoinNow from "../../components/ModalJoinNow/ModalJoinNow";
+import ModalLogin from "../../components/ModalLogin/ModalLogin";
 
-const API_URL = process.env.REACT_APP_API_URL;
+import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
+
+
+// const API_URL = process.env.REACT_APP_API_URL;
 
 function EcoScore() {
-  const [isloading, setIsLoading] = useState(true);
-  const [showModal, setShowModal] = useState(false);
-  const [totalCarbonSaved, setTotalCarbonSaved] = useState("");
+  
+  // const [isloading, setIsLoading] = useState(true);
 
-  const handleJoinNow = () => {
-    console.log("Join Now");
-    setShowModal(true);
-  };
+  const [showJoinModal, setShowJoinModal] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const currentTime = new Date().getTime();
-      setTotalCarbonSaved(Math.floor((currentTime / 10000) * 7.200000000000234582) - 1227300600);
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <>
-      <Header />
+      <Header
+        setShowJoinModal={setShowJoinModal}
+        setShowLoginModal={setShowLoginModal}
+      />
 
-      {showModal && <JoinNowModal setShowModal={setShowModal} />}
+      <AnimatePresence>
+        {showJoinModal && (
+          <ModalJoinNow
+            setShowJoinModal={setShowJoinModal}
+            setShowLoginModal={setShowLoginModal}
+          />
+        )}
+        {showLoginModal && (
+          <ModalLogin
+            setShowJoinModal={setShowJoinModal}
+            setShowLoginModal={setShowLoginModal}
+          />
+        )}
+      </AnimatePresence>
+
 
       <EcoNumber />
       <Leaderboard />

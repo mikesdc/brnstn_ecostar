@@ -3,21 +3,18 @@
 
 @import "../../styles/partials/global";
 
-
-.join-now-modal {
+.login-modal {
   &__overlay {
     width: 100%;
     height: 100%;
     background-color: rgba($grey-1, 0.7);
-    position: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     position: fixed;
-    top: 0;
+    top: 4rem;
     left: 0;
-    z-index: 100;
   }
 
   &__container {
@@ -29,6 +26,8 @@
     flex-direction: column;
     border-radius: 0.2rem;
     padding: 1.5rem 4rem;
+    z-index: 99;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
   }
 
   &__close {
@@ -55,6 +54,7 @@
 
   &__content {
     padding: 1rem 2rem;
+    color: $green-main-d4;
   }
 
   &__form {
@@ -69,7 +69,7 @@
     h1 {
       font-size: 1.8rem;
       font-weight: 600;
-      color: var(--Instock-Black);
+      color: $green-main-d4;
     }
   }
 
@@ -109,31 +109,20 @@
   &__submit {
     transition: background-color 0.25s, color 0.25s;
     background-color: $green-white;
-    border: 1px solid black;
+    border: 1px solid $green-main-d4;
     border-radius: 1.25rem;
     padding: 0.35rem 2.9rem;
     font-size: 0.8rem;
     font-weight: 700;
-    margin-bottom: 0.4rem;
+    margin: 1rem 0 0.2rem;
     flex-grow: 1;
 
     &:hover {
-      background-color: $blue-1;
+      background-color: $green-main;
       color: $green-light;
       transition: border-color 0.25s, color 0s, background-color 0.25s;
       cursor: pointer;
     }
-  }
-
-  &__cancel-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-    margin-top: auto;
-    color: $grey-2;
-
   }
 
   &__separator {
@@ -141,7 +130,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin: 2rem 0;
+    margin: 1.5rem 0;
     width: 100%;
     color: $grey-2;
 
@@ -154,18 +143,25 @@
       border: 1px solid $grey-2;
       border-radius: 0.5rem;
     }
-
   }
 
-  &__cancel {
+  &__button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    color: $grey-2;
+  }
+
+  &__cancel, &__login, &__create {
     transition: background-color 0.25s, color 0.25s;
     background-color: $green-white;
-    border: 1px solid black;
+    border: 1px solid $green-main-d4;
     border-radius: 1.25rem;
     font-size: 0.8rem;
     font-weight: 700;
-    flex-grow: 1;
     padding: 0.35rem 1rem;
+    margin-bottom: 1rem;
 
     &:hover {
       background-color: $red;
@@ -173,5 +169,12 @@
       transition: border-color 0.25s, color 0s, background-color 0.25s;
       cursor: pointer;
     }
+  }
+
+  &__create:hover {
+      background-color: $blue-1;
+  }
+  &__login:hover {
+      background-color: $green-main;
   }
 }

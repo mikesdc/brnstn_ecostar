@@ -1,38 +1,53 @@
 import "./Main.scss";
+
 import Header from "../../components/Header/Header";
 import Calculator from "../../components/Calculator/Calculator";
 import Footer from "../../components/Footer/Footer";
 import DataVis from "../../components/DataVis/DataVis";
-import { useState, useEffect } from "react";
+import ModalJoinNow from "../../components/ModalJoinNow/ModalJoinNow";
+import ModalLogin from "../../components/ModalLogin/ModalLogin";
+import Hero from "../../components/Hero/Hero";
 import JoinNowModal from "../../components/JoinNowModal/JoinNowModal";
 import Partnerships from "../../components/Partnerships/Partnerships";
-
 import Hero from "../../components/Hero/Header";
 
-const API_URL = process.env.REACT_APP_API_URL;
+import { useState, useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
+
+// const API_URL = process.env.REACT_APP_API_URL;
 
 function Main() {
-  const [isloading, setIsLoading] = useState(true);
-  const [showModal, setShowModal] = useState(false);
+
+  // const [isloading, setIsLoading] = useState(true);
+  
+  const [showJoinModal, setShowJoinModal] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
   const [totalCarbonSaved, setTotalCarbonSaved] = useState("");
 
-  const handleJoinNow = () => {
-    console.log("Join Now");
-    setShowModal(true);
-  };
+  // const handleJoinNow = () => {
+  //   setShowJoinModal(true);
+  //   setShowLoginModal(false);
+  // };
+  // const handleLogin = () => {
+  //   setShowJoinModal(false);
+  //   setShowLoginModal(true);
+  // };
 
   // For the data visualization component.
-  // This block of code generates a number that increases and updates the DataVis component every second.
+  // This block of code generates a number that increases and updates the DataVis component in random intervals.
   // This represents a simulation of the total carbon saved by the users of the app.
   useEffect(() => {
-    const interval = setInterval(() => {
+    const startTime = 1704667579900;
+    const updateCarbonSaved = () => {
       const currentTime = new Date().getTime();
       setTotalCarbonSaved(
-        Math.floor((currentTime / 10000) * 7.200000000000234582) - 1227300600
+        Math.floor((currentTime - startTime) * (7.141592 / 12500))
       );
-    }, 1000);
-
-    return () => clearInterval(interval);
+      const nextUpdateInMs = Math.random() * 5000;
+      setTimeout(updateCarbonSaved, nextUpdateInMs);
+    };
+    updateCarbonSaved();
+    return () => {};
   }, []);
 
   // // This block of code fetches the total carbon saved from the database and updates the DataVis component.
@@ -46,24 +61,35 @@ function Main() {
 
   return (
     <>
-      <Header />
-      <Hero setShowModal={setShowModal} />
+      <Header
+        setShowJoinModal={setShowJoinModal}
+        setShowLoginModal={setShowLoginModal}
+      />
+      <AnimatePresence>
+        {showJoinModal && (
+          <ModalJoinNow
+            setShowJoinModal={setShowJoinModal}
+            setShowLoginModal={setShowLoginModal}
+          />
+        )}
+        {showLoginModal && (
+          <ModalLogin
+            setShowJoinModal={setShowJoinModal}
+            setShowLoginModal={setShowLoginModal}
+          />
+        )}
+      </AnimatePresence>
 
-      {showModal && <JoinNowModal setShowModal={setShowModal} />}
+      <Hero
+        setShowJoinModal={setShowJoinModal}
+        setShowLoginModal={setShowLoginModal}
+      />
 
       <DataVis
-        setShowModal={setShowModal}
+        setShowJoinModal={setShowJoinModal}
         totalCarbonSaved={totalCarbonSaved}
       />
 
-      <main className="main">
-        <div className="main__card-example">
-          <h1>Test Card</h1>
-          <div className="main__join-now" onClick={handleJoinNow}>
-            Join Now
-          </div>
-        </div>
-      </main>
       <Calculator />
       <Partnerships />
       <Footer />

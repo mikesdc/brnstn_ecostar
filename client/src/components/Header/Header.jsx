@@ -1,8 +1,16 @@
 import "./Header.scss";
 import { NavLink, Link } from "react-router-dom";
-import React, { useState } from "react";
+import React from "react";
 import ecoStarLogo from "../../assets/logo/eco-star-logo.png";
-const Header = () => {
+const Header = ({ setShowJoinModal, setShowLoginModal }) => {
+  
+  // function for login modal
+  const handleOpenLogin = () => {
+    setShowJoinModal(false);
+    setShowLoginModal(true);
+  };
+
+
   return (
     <div className="nav-container">
       <nav className="nav">
@@ -28,13 +36,13 @@ const Header = () => {
 
             <li className="nav__list-item">
               <NavLink to="/ecoscore" className="nav__link">
-                leaderboard
+                ecopoints
               </NavLink>
             </li>
             <li className="nav__list-item">
-              <NavLink to="/login" className="nav__link">
+              <Link className="nav__link" onClick={handleOpenLogin}>
                 login
-              </NavLink>
+              </Link>
             </li>
           </ul>
         </div>
