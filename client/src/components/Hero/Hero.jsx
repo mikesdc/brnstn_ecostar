@@ -1,9 +1,14 @@
-import "./Header.scss";
+import "./Hero.scss";
 
-const Header = ({ setShowModal }) => {
+const Hero = ({ setShowJoinModal, setShowLoginModal }) => {
   const handleJoinNow = () => {
-    setShowModal(true);
+    setShowJoinModal(true);
+    setShowLoginModal(false);
   };
+  // const handleLogin = () => {
+  //   setShowJoinModal(false);
+  //   setShowLoginModal(true);
+  // };
 
   return (
     <>
@@ -26,4 +31,4 @@ const Header = ({ setShowModal }) => {
   );
 };
 
-export default Header;
+export default Hero;

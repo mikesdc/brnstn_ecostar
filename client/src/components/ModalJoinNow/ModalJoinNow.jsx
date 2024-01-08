@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./ModalJoinNow.scss";
 import closeIcon from "../../assets/icons/close-24px.svg";
 import axios from "axios";
@@ -7,15 +7,23 @@ import { motion } from "framer-motion";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8080";
 
-const ModalJoinNow = ({ setShowJoinModal }) => {
+const ModalJoinNow = ({ setShowJoinModal, setShowLoginModal }) => {
   // function for button - closing the modal
+
   const handleClose = () => {
-    setFormData(blankFormData);
+    setJoinFormData(blankFormData);
     setShowJoinModal(false);
+    setShowLoginModal(false);
+  };
+  const handleOpenLogin = () => {
+    setJoinFormData(blankFormData);
+    setShowJoinModal(false);
+    setShowLoginModal(true);
   };
 
-  const [currentUser, setCurrentUser] = useState(null);
-  const [formData, setFormData] = useState({
+  // const [currentUser, setCurrentUser] = useState(null);
+
+  const [joinFormData, setJoinFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
@@ -32,13 +40,13 @@ const ModalJoinNow = ({ setShowJoinModal }) => {
   };
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setJoinFormData({ ...joinFormData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(API_URL, formData);
+      const response = await axios.post(API_URL, joinFormData);
       console.log(response.data);
     } catch (error) {
       console.error("Error posting data:", error);
@@ -58,7 +66,7 @@ const ModalJoinNow = ({ setShowJoinModal }) => {
             <img src={closeIcon} alt="close icon" onClick={handleClose} />
           </div>
           <div className="join-now-modal__title">
-            <h1>Join Now</h1>
+            <h1>JOIN NOW</h1>
           </div>
           <div className="join-now-modal__content">
             <form className="join-now-modal__form" onSubmit={handleSubmit}>
@@ -69,7 +77,7 @@ const ModalJoinNow = ({ setShowJoinModal }) => {
                     type="email"
                     name="email"
                     className="join-now-modal__input"
-                    value={formData.email}
+                    value={joinFormData.email}
                     onChange={handleChange}
                     placeholder="Email Address"
                   />{" "}
@@ -82,7 +90,7 @@ const ModalJoinNow = ({ setShowJoinModal }) => {
                     type="text"
                     name="firstName"
                     className="join-now-modal__input"
-                    value={formData.firstName}
+                    value={joinFormData.firstName}
                     onChange={handleChange}
                     placeholder="First Name"
                   />
@@ -95,7 +103,7 @@ const ModalJoinNow = ({ setShowJoinModal }) => {
                     type="text"
                     name="lastName"
                     className="join-now-modal__input"
-                    value={formData.lastName}
+                    value={joinFormData.lastName}
                     onChange={handleChange}
                     placeholder="Last Name"
                   />
@@ -108,7 +116,7 @@ const ModalJoinNow = ({ setShowJoinModal }) => {
                     type="text"
                     name="phoneNumber"
                     className="join-now-modal__input"
-                    value={formData.phoneNumber}
+                    value={joinFormData.phoneNumber}
                     onChange={handleChange}
                     placeholder="Phone Number"
                   />
@@ -121,7 +129,7 @@ const ModalJoinNow = ({ setShowJoinModal }) => {
                     type="password"
                     name="password"
                     className="join-now-modal__input"
-                    value={formData.password}
+                    value={joinFormData.password}
                     onChange={handleChange}
                     placeholder="Password"
                   />
@@ -138,10 +146,13 @@ const ModalJoinNow = ({ setShowJoinModal }) => {
               ------------------------------------
             </div>
 
-            <div className="join-now-modal__cancel-container">
-              <button className="join-now-modal__cancel" onClick={handleClose}>
+            <div className="join-now-modal__button-container">
+              <div><button className="join-now-modal__login" onClick={handleOpenLogin}>
+                Login
+              </button></div>
+              <div><button className="join-now-modal__cancel" onClick={handleClose}>
                 Cancel
-              </button>
+              </button></div>
             </div>
           </div>
         </div>

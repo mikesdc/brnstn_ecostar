@@ -54,7 +54,18 @@ $background-image: url("../../assets/images/DataVisBackground.png");
     height: 10rem;
     padding: 4rem auto;
     color: $green-main-d4;
+   
+    .subscript {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-left: 0.5rem;
+      position: relative;
+      left: -0.5rem;
+      top: 0.45rem;
+      z-index: 0;
   }
+  
+}
 
   &__data {
     display: flex;
@@ -76,11 +87,3 @@ $background-image: url("../../assets/images/DataVisBackground.png");
   }
 }
 
-.subscript {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-left: 0.5rem;
-    position: relative;
-    left: -0.5rem;
-    top: 0.45rem;
-}
