@@ -136,7 +136,7 @@ const ModalJoinNow = ({ setShowJoinModal, setShowLoginModal }) => {
                 </div>
               </div>
               <button className="join-now-modal__submit" type="submit">
-                Create Profile
+                CREATE PROFILE
               </button>
             </form>
 
