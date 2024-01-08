@@ -13,11 +13,8 @@ const Leaderboard = () => {
 
   return (
     <main className="main">
-      <div className="main__card-example">
-        <h1>LEADERBOARD AND 7 DAYS CHART</h1>
-        <div className="main__join-now" onClick={handleJoinNow}>
-          Join Now
-        </div>
+      <div className="main__card">
+        <h1 className="main__table-title">LEADERBOARD</h1>
       </div>
     </main>
   );
