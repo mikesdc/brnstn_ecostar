@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8080";
 
-const ModalLogin = ({ setShowJoinModal, setShowLoginModal }) => {
+const ModalLogin = ({ setShowJoinModal, setShowLoginModal, setIsLoggedIn }) => {
   // function for button - closing the modal
   const handleClose = () => {
     setLoginFormData(blankFormData);
@@ -46,6 +46,7 @@ const ModalLogin = ({ setShowJoinModal, setShowLoginModal }) => {
       sessionStorage.setItem("userName", response.data.first_name);
       sessionStorage.setItem("userLoggedIn", true);
       setShowLoginModal(false);
+      setIsLoggedIn(true);
     } catch (error) {
       console.error("Error posting data:", error);
     }

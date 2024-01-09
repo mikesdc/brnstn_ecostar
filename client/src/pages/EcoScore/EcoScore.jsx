@@ -10,22 +10,21 @@ import ModalLogin from "../../components/ModalLogin/ModalLogin";
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
-
 // const API_URL = process.env.REACT_APP_API_URL;
 
-function EcoScore() {
-  
+function EcoScore({ isLoggedIn, setIsLoggedIn }) {
   // const [isloading, setIsLoading] = useState(true);
 
   const [showJoinModal, setShowJoinModal] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
-
 
   return (
     <>
       <Header
         setShowJoinModal={setShowJoinModal}
         setShowLoginModal={setShowLoginModal}
+        isLoggedIn={isLoggedIn}
+        setIsLoggedIn={setIsLoggedIn}
       />
 
       <AnimatePresence>
@@ -39,12 +38,12 @@ function EcoScore() {
           <ModalLogin
             setShowJoinModal={setShowJoinModal}
             setShowLoginModal={setShowLoginModal}
+            setIsLoggedIn={setIsLoggedIn}
           />
         )}
       </AnimatePresence>
 
-
-      <EcoNumber />
+      <EcoNumber isLoggedIn={isLoggedIn}/>
       <Leaderboard />
       <Partnerships />
 

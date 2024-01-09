@@ -10,7 +10,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 
 function App() {
   
-  const [isloading, setIsLoading] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     sessionStorage.setItem("userId", 0);
@@ -22,8 +22,8 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/ecoscore" element={<EcoScore />} />
+          <Route path="/" element={<Main isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
+          <Route path="/ecoscore" element={<EcoScore  isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
         </Routes>
       </BrowserRouter>
     </>

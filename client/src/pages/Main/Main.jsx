@@ -14,10 +14,9 @@ import { AnimatePresence } from "framer-motion";
 
 // const API_URL = process.env.REACT_APP_API_URL;
 
-function Main() {
-
+function Main({ isLoggedIn, setIsLoggedIn }) {
   // const [isloading, setIsLoading] = useState(true);
-  
+
   const [showJoinModal, setShowJoinModal] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [totalCarbonSaved, setTotalCarbonSaved] = useState("");
@@ -62,6 +61,8 @@ function Main() {
       <Header
         setShowJoinModal={setShowJoinModal}
         setShowLoginModal={setShowLoginModal}
+        isLoggedIn={isLoggedIn}
+        setIsLoggedIn={setIsLoggedIn}
       />
       <AnimatePresence>
         {showJoinModal && (
@@ -74,6 +75,7 @@ function Main() {
           <ModalLogin
             setShowJoinModal={setShowJoinModal}
             setShowLoginModal={setShowLoginModal}
+            setIsLoggedIn={setIsLoggedIn}
           />
         )}
       </AnimatePresence>
