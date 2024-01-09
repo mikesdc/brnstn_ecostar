@@ -25,42 +25,42 @@ const Partnerships = () => {
             <br />
             <div className="grid-container">
               <div className="grid-item">
-                <a className="link" href="https://www.loblaws.ca/">
+                <a className="link" target='_blank' href="https://www.loblaws.ca/">
                   <img src={Loblaws} className='grid-img'></img>
                 </a>
               </div>
               <div className="grid-item">
-                <a className="link" href="https://www.patagonia.ca/home/">
+                <a className="link" target='_blank' href="https://www.patagonia.ca/home/">
                   <img src={Patagonia} className='grid-img'></img>
                 </a>
               </div>
               <div className="grid-item">
-                <a className="link" href="https://shop.lululemon.com/en-ca/">
+                <a className="link" target='_blank' href="https://shop.lululemon.com/en-ca/">
                   <img src={Lululemon} className='grid-img'></img>
                 </a>
               </div>
               <div className="grid-item">
-                <a className="link" href="https://www.nike.com/ca/">
+                <a className="link" target='_blank' href="https://www.nike.com/ca/">
                   <img src={Nike} className='grid-img'></img>
                 </a>
               </div>
               <div className="grid-item">
-                <a className="link" href="https://www.starbucks.ca/">
+                <a className="link" target='_blank' href="https://www.starbucks.ca/">
                   <img src={Starbucks} className='grid-img'></img>
                 </a>
               </div>
               <div className="grid-item">
-                <a className="link" href="https://www.adidas.ca/">
+                <a className="link" target='_blank' href="https://www.adidas.ca/">
                   <img src={Adidas} className='grid-img'></img>
                 </a>
               </div>
               <div className="grid-item">
-                <a className="link" href="https://www.roots.com/ca/en/homepage">
+                <a className="link" target='_blank' href="https://www.roots.com/ca/en/homepage">
                   <img src={Roots} className='grid-img'></img>
                 </a>
               </div>
               <div className="grid-item">
-                <a className="link" href="https://www.canadiantire.ca/">
+                <a className="link" target='_blank' href="https://www.canadiantire.ca/">
                   <img src={CanadianTire} className='grid-img'></img>
                 </a>
               </div>

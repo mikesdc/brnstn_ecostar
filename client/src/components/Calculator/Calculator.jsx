@@ -1,6 +1,7 @@
 import './Calculator.scss';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import MapComponent from '../Map/Map';
 
 
 const Calculator = () => {
@@ -145,8 +146,15 @@ const Calculator = () => {
                 Use our calculator to measure your commute's impact on the
                 environment.
               </p>
+              <div className='mapDiv'>
+            <div className='mapDiv2'>
+              <MapComponent />
             </div>
           </div>
+            </div>
+          </div>
+
+
           <div className='card-right'>
             <div className='card-right__inner'>
               <div className='card-right__inner-card'>
@@ -206,7 +214,7 @@ const Calculator = () => {
                     </select>
                   </div>
                   <div className='calc__input-group'>
-                    <label>Distance to Work (KM's): </label>
+                    <label>Commute Distance (KM's): </label>
                     <input
                       required
                       type='number'
@@ -216,19 +224,63 @@ const Calculator = () => {
                       onChange={formHandler}
                     ></input>
                   </div>
-                  <div className='calc__input-group'>
-                    <label>Work Days per Week:</label>
-                    <input
-                      required
-                      type='number'
-                      value={formData.workDays}
-                      placeholder='Enter work days per week'
-                      name='workDays'
-                      min='1'
-                      max='7'
-                      onChange={formHandler}
-                    ></input>
-                  </div>
+
+                  {loggedIn ? (
+                  <>
+                    <div className='calc__input-group'>
+                      <label>Start Location: </label>
+                      <input
+                        // required
+                        type='text'
+                        value={formData.startLocation}
+                        placeholder='Enter your starting location'
+                        name='startLocation'
+                        onChange={formHandler}
+                      ></input>
+                      <div className='calc__input-group'>
+                      <label>End Location: </label>
+                      <input
+                        // required
+                        type='text'
+                        value={formData.endLocation}
+                        placeholder='Enter your end location'
+                        name='endLocation'
+                        onChange={formHandler}
+                      ></input>
+                      </div>
+                    </div>
+                    <div className='calc__input-group'>
+                      <label>Number of Trips</label>
+                        <input
+                          required
+                          type='number'
+                          value={formData.workDays}
+                          placeholder='Enter Number of Trips'
+                          name='workDays'
+                          min='1'
+                          max='1'
+                          onChange={formHandler}
+                        ></input>
+                    </div>
+                  </>
+                  )
+                  :
+                  (
+                    <div className='calc__input-group'>
+                      <label>Work Days per Week:</label>
+                        <input
+                          required
+                          type='number'
+                          value={formData.workDays}
+                          placeholder='Enter work days per week'
+                          name='workDays'
+                          min='1'
+                          max='7'
+                          onChange={formHandler}
+                        ></input>
+                    </div>
+                  )}
+
                   {loggedIn ? (
                     <div className='calc__buttons'>
                       <button
