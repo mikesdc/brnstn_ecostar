@@ -206,7 +206,7 @@ const Calculator = () => {
                     </select>
                   </div>
                   <div className='calc__input-group'>
-                    <label>Distance to Work (KM's): </label>
+                    <label>Commute Distance (KM's): </label>
                     <input
                       required
                       type='number'
@@ -216,7 +216,37 @@ const Calculator = () => {
                       onChange={formHandler}
                     ></input>
                   </div>
-                  <div className='calc__input-group'>
+
+                  {loggedIn ? (
+                    <>
+                      <div className='calc__input-group'>
+                        <label>Start Location</label>
+                          <input
+                            required
+                            type='number'
+                            value={formData.workDays}
+                            placeholder='Enter work days per week'
+                            name='workDays'
+                            min='1'
+                            max='7'
+                            onChange={formHandler}
+                          ></input>
+                          <label>End Location</label>
+                          <input
+                            required
+                            type='number'
+                            value={formData.workDays}
+                            placeholder='Enter work days per week'
+                            name='workDays'
+                            min='1'
+                            max='7'
+                            onChange={formHandler}
+                          ></input>
+                      </div>
+                    </>
+                    ) : (
+                    <>
+                    <div className='calc__input-group'>
                     <label>Work Days per Week:</label>
                     <input
                       required
@@ -229,6 +259,10 @@ const Calculator = () => {
                       onChange={formHandler}
                     ></input>
                   </div>
+                    </>
+                    )}
+
+
                   {loggedIn ? (
                     <div className='calc__buttons'>
                       <button
@@ -266,4 +300,3 @@ const Calculator = () => {
 };
 
 export default Calculator;
-
