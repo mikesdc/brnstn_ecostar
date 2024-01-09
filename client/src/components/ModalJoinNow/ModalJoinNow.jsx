@@ -24,19 +24,19 @@ const ModalJoinNow = ({ setShowJoinModal, setShowLoginModal }) => {
   // const [currentUser, setCurrentUser] = useState(null);
 
   const [joinFormData, setJoinFormData] = useState({
-    firstName: "",
-    lastName: "",
+    first_name: "",
+    last_name: "",
     email: "",
     password: "",
-    phoneNumber: "",
+    phone: "",
   });
 
   let blankFormData = {
-    firstName: "",
-    lastName: "",
+    first_name: "",
+    last_name: "",
     email: "",
     password: "",
-    phoneNumber: "",
+    phone: "",
   };
 
   const handleChange = (e) => {
@@ -46,8 +46,9 @@ const ModalJoinNow = ({ setShowJoinModal, setShowLoginModal }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(API_URL, joinFormData);
+      const response = await axios.post(API_URL+"/users", joinFormData);
       console.log(response.data);
+      setShowJoinModal(false);
     } catch (error) {
       console.error("Error posting data:", error);
     }
@@ -88,9 +89,9 @@ const ModalJoinNow = ({ setShowJoinModal, setShowLoginModal }) => {
                 <div className="join-now-modal__col-right">
                   <input
                     type="text"
-                    name="firstName"
+                    name="first_name"
                     className="join-now-modal__input"
-                    value={joinFormData.firstName}
+                    value={joinFormData.first_name}
                     onChange={handleChange}
                     placeholder="First Name"
                   />
@@ -101,9 +102,9 @@ const ModalJoinNow = ({ setShowJoinModal, setShowLoginModal }) => {
                 <div className="join-now-modal__col-right">
                   <input
                     type="text"
-                    name="lastName"
+                    name="last_name"
                     className="join-now-modal__input"
-                    value={joinFormData.lastName}
+                    value={joinFormData.last_name}
                     onChange={handleChange}
                     placeholder="Last Name"
                   />
@@ -114,9 +115,9 @@ const ModalJoinNow = ({ setShowJoinModal, setShowLoginModal }) => {
                 <div className="join-now-modal__col-right">
                   <input
                     type="text"
-                    name="phoneNumber"
+                    name="phone"
                     className="join-now-modal__input"
-                    value={joinFormData.phoneNumber}
+                    value={joinFormData.phone}
                     onChange={handleChange}
                     placeholder="Phone Number"
                   />
