@@ -3,15 +3,22 @@
 
 @import "../../styles/partials/global";
 
+
+.nav-container {
+  position: sticky;
+  z-index: 100;
+  top: 0;
+  box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.3);
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
-  position: sticky;
-
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 0.5rem;
   background-color: rgb(255, 255, 255);
+  // width: 100vw;
 
   @include desktop {
     padding: 1rem 4rem 1rem 4rem;
