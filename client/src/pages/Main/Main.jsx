@@ -36,7 +36,7 @@ function Main({loggedIn, userName, userId, setLoggedIn, setUserName, setUserId})
   // This block of code generates a number that increases and updates the DataVis component in random intervals.
   // This represents a simulation of the total carbon saved by the users of the app.
   useEffect(() => {
-    const startTime = 1704667579900;
+    const startTime = 1704807579900;
     const updateCarbonSaved = () => {
       const currentTime = new Date().getTime();
       setTotalCarbonSaved(
