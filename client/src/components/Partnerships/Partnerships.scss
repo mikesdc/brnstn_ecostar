@@ -71,7 +71,6 @@ a:active {
   flex-direction: row;
   background-color: $green-main;
   width: 100vw;
-  height: 115vh;
 
   &__card-example {
     // display: flex;
@@ -79,7 +78,7 @@ a:active {
     flex-grow: 1;
     // width: 10rem;
     height: 54rem;
-    margin: 5rem 5rem;
+    margin: 5rem 5rem 8rem;
     border-radius: 1rem;
     background-color: $green-white;
     box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);

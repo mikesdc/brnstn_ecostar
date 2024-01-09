@@ -55,7 +55,7 @@ const EcoScore = ({userId,userName}) => {
               <p>You have saved</p>
               <p className="middle-paragraph">
                 
-              <CountUp end={totalCarbonSaved} duration={2.75} /> kilograms of CO<span className="subscript">2</span></p>
+              <CountUp end={totalCarbonSaved} duration={2.75} /> grams of CO<span className="subscript">2</span></p>
               <p>from being emitted!</p>
             </div>
             <div className="eco-number__image-container tipping-container"><img className="eco-number__image tipping" src={canister} alt="a canister" /></div>

@@ -8,14 +8,16 @@
   flex-direction: row;
   background-color: $green-main;
   width: 100vw;
-  height: 73rem;
+  min-height: 70rem;
 
   &__card-example {
     display: flex;
-    align-items: baseline;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
     flex-grow: 1;
     width: 10rem;
-    margin: 5rem 5rem;
+    margin: 4rem 5rem 8rem;
     border-radius: 1rem;
     background-color: $green-white;
     box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
@@ -25,14 +27,17 @@
 // --------------- CARD: LEFT SIDE ---------------
 .card-left {
   width: 50%;
-  // align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   &__inner {
     display: flex;
     flex-direction: column;
-    height: 30rem;
+    min-height: 30rem;
     align-items: center;
-    margin: 5rem 5rem;
+    margin: 4rem 4rem;
   }
 
   &__header {
@@ -60,6 +65,8 @@
   width: 50%;
   align-self: center;
   display: flex;
+  justify-content: center;
+
 
   &__inner {
     display: flex;
@@ -157,13 +164,17 @@ select {
 }
 
 .mapDiv{
-  height: 10vw;
-  width: 10vw;
-  place-self: self-start;
 
 }
 .mapDiv2{
-  height: 10vw;
-  width: 10vw;
-flex-wrap: wrap;
+}
+
+.calc__select {
+  width: 104%;
+  padding: 8px;
+  margin-bottom: 10px;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
 }
