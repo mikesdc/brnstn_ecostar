@@ -80,6 +80,39 @@
     border-radius: 100%;
     margin-right: 1rem;
   }
+
+  &__icon-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    margin-left: 1.5rem;
+  }
+
+  &__icon-2 {
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    margin-left: 0.8rem;
+  }
+
+  &__icon-3 {
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    margin-left: 1.2rem;
+  }
+
+  &__icon-4 {
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    margin-left: 1.2rem;
+  }
 }
 
 .dark {
