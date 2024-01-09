@@ -15,8 +15,8 @@ const Calculator = () => {
   const [dateInput, setDateInput] = useState(today);
 
 
-  const [loggedIn, setLoggedIn] = useState(true); // For testing
-  // const [loggedIn, setLoggedIn] = useState(false); // For testing
+  // const [loggedIn, setLoggedIn] = useState(true); // For testing
+  const [loggedIn, setLoggedIn] = useState(false); // For testing
 
   // build new object to hold data
   let [formData, setFormData] = useState({
@@ -214,7 +214,6 @@ const Calculator = () => {
                     </select>
                   </div>
                   <div className='calc__input-group'>
-                    <label>Commute Distance (KM's): </label>
                     <label>Commute Distance (KM's): </label>
                     <input
                       required
