@@ -219,7 +219,7 @@ const Calculator = () => {
                       required
                       type='number'
                       value={formData.distance}
-                      placeholder='Enter distance to work'
+                      placeholder='Enter commute distance'
                       name='distance'
                       onChange={formHandler}
                     ></input>
@@ -255,7 +255,7 @@ const Calculator = () => {
                           required
                           type='number'
                           value={formData.workDays}
-                          placeholder='Enter Number of Trips'
+                          placeholder='Enter number of trips'
                           name='workDays'
                           min='1'
                           max='1'

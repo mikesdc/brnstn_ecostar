@@ -28,16 +28,6 @@ export default function MapComponent() {
           <NavigationControl />
           <ScaleControl />
           <GeolocateControl />
-          {/* {locations.map((location, index) => location.coordinates && (
-            <Marker
-              className="marker"
-              key={index}
-              latitude={location.coordinates[1]}
-              longitude={location.coordinates[0]}
-              draggable={false}
-              color="#6c85ba"
-            />
-          ))} */}
         </Map>
       )}
     </>
