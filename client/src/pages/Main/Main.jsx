@@ -95,12 +95,10 @@ function Main({loggedIn, userName, userId, setLoggedIn, setUserName, setUserId})
         setShowJoinModal={setShowJoinModal}
         totalCarbonSaved={totalCarbonSaved}
       />
-
       <Calculator 
         loggedIn={loggedIn}
         userId={userId}
       />
-      {/* <Partnerships /> */}
       <Footer />
     </>
   );

@@ -137,7 +137,7 @@ const Calculator = ({loggedIn,userId}) => {
 
   return (
     <>
-      <div className='calculator-main'>
+      <div className='calculator-main' id='calculator'>
         <div className='calculator-main__card-example'>
           <div className='card-left'>
             <div className='card-left__inner'>

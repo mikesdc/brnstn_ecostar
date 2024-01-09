@@ -16,8 +16,8 @@ const Hero = ({ setShowJoinModal, setShowLoginModal }) => {
         <section className="hero">
           <div className="hero__container">
             <h1 className="hero__title">
-              Take an active step in reducing CO2 and playing a role in
-              minimizing your carbon foot print by using EcoStar<span>©</span>
+              Take an active step in reducing CO<span className="subscript-hero">2</span> and playing a role in
+              minimizing your carbon foot print by becoming an EcoStar<span className="copyright c">©</span>
             </h1>
             <div className="hero__button-container">
               <button className="hero__button" onClick={handleJoinNow}>

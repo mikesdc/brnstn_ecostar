@@ -3,7 +3,9 @@
 
 @import "../../styles/partials/global";
 
-$background-image: url("../../assets/images/DataVisBackground.png");
+$background-image-DataVis: url("../../assets/images/DataVisBackground.png");
+
+
 
 .data-vis {
   &__main {
@@ -20,7 +22,7 @@ $background-image: url("../../assets/images/DataVisBackground.png");
     align-items: center;
     flex-grow: 1;
     background-color: $green-white;
-    background-image: $background-image;
+    background-image: $background-image-DataVis;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center -5rem;

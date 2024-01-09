@@ -1,6 +1,9 @@
 import "./EcoNumber.scss";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import canister from "../../assets/images/canister.png";
+import CountUp from 'react-countup';
+import { HashLink } from 'react-router-hash-link';
 
 const EcoScore = ({userId,userName}) => {
   const [isloading, setIsLoading] = useState(true);
@@ -9,7 +12,6 @@ const EcoScore = ({userId,userName}) => {
   const [totalScore, setTotalScore] = useState(0);
   const [totalCarbonSaved, setTotalCarbonSaved] = useState(0);
   const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8080";
-
 
   useEffect(() =>{
 
@@ -25,13 +27,13 @@ const EcoScore = ({userId,userName}) => {
       .catch(function (error) {
         // handle error
         console.log(error);
-      })
+      });
 
     axios
       .get(API_URL+"/commute/carbon/"+userId)
       .then(function (response) {
-        if (response.data[0]["sum(`co2_saved_kg`)"] !== null){
-          setTotalCarbonSaved(response.data[0]["sum(`co2_saved_kg`)"])
+        if (response.data[0]["sum(`co2_saved_kg`)"] !== null) {
+          setTotalCarbonSaved(response.data[0]["sum(`co2_saved_kg`)"]);
         }
         else{
           setTotalCarbonSaved(0)
@@ -40,29 +42,32 @@ const EcoScore = ({userId,userName}) => {
   },[userId]);
 
   return (
-<main className="data-vis__main">
-      <div className="data-vis__card">
-        <div className="data-vis__card-left"></div>
-        <div className="data-vis__card-right">
-          <div className="data-vis__header">
+    <main className="eco-number__main">
+      <div className="eco-number__card">
+        <div className="eco-number__card-left"></div>
+        <div className="eco-number__card-right">
+          <div className="eco-number__header">
             <h1>Welcome, {userName}!</h1>
           </div>
-          <div className="data-vis__header">
-            <h1>You have saved</h1>
+
+          <div className="eco-number__block-1">
+            <div className="eco-number__statement">
+              <p>You have saved</p>
+              <p className="middle-paragraph">
+                
+              <CountUp end={totalCarbonSaved} duration={2.75} /> kilograms of CO<span className="subscript">2</span></p>
+              <p>from being emitted!</p>
+            </div>
+            <div className="eco-number__image-container tipping-container"><img className="eco-number__image tipping" src={canister} alt="a canister" /></div>
           </div>
-          <div className="data-vis__header">
-            <h1>{totalCarbonSaved} kilograms of CO<span className="subscript">2</span></h1>
-          </div>
-          <div className="data-vis__header">
-            <h1>from being emitted!</h1>
-          </div>
-          <div className="data-vis__header">
+
+          <div className="eco-number__block-2">
             <h1>You have</h1>
-          </div>
-          <h1 className="data-vis__data">{totalScore}</h1>
-          <div className="data-vis__header">
-            <h1> Eco Points! Reward yourself!</h1>
-          </div>
+          
+            <HashLink smooth to="#target-section"><h1 className="eco-number__data neumorphic-div"><CountUp end={totalScore}duration={2.75} /></h1></HashLink>
+          <div className="eco-number__header1">
+            <h1>Eco Points!</h1><p>Reward yourself!</p>
+          </div></div>
         </div>
       </div>
     </main>
