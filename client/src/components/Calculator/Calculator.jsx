@@ -4,10 +4,10 @@ import axios from 'axios';
 import MapComponent from '../Map/Map';
 
 
-const Calculator = () => {
+const Calculator = ({loggedIn,userId}) => {
 
   const today = new Date().toISOString().split('T')[0];   // Format today's date as YYYY-MM-DD
-
+  const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8080";
   // state to hold carbon footprint result
   const [carbonFootprint, setCarbonFootprint] = useState(null);
   const [carbonFootprintSaved, setCarbonFootprintSaved] = useState(null);
@@ -16,7 +16,7 @@ const Calculator = () => {
 
 
   // const [loggedIn, setLoggedIn] = useState(true); // For testing
-  const [loggedIn, setLoggedIn] = useState(false); // For testing
+  // const [loggedIn, setLoggedIn] = useState(); // For testing
 
   // build new object to hold data
   let [formData, setFormData] = useState({
@@ -93,10 +93,28 @@ const Calculator = () => {
       newFormData = {
         ...formData,
         submissionDate: formattedDate,  // Set the current date
-        tripDate: dateInput,
-        newPoints: pointsEarned,
+        commute_date: dateInput,
+        eco_score: pointsEarned,
+        co2_saved_kg: carbonFootprintSaved,
+        user_id: userId
       };
       console.log('newFormData=', newFormData);
+      let postData = {
+        commute_date: dateInput,
+        eco_score: pointsEarned,
+        co2_saved_kg: carbonFootprintSaved,
+        user_id: userId,
+        start_location: newFormData.start_location,
+        end_location: newFormData.end_location,
+        distance: newFormData.distance
+      }
+      axios.post(API_URL+"/commute", postData)
+      .then(res =>{
+        console.log(res.data);
+      })
+      .catch (err => {
+        console.error("Error posting data:", err);
+      })
     } else {
       calculateFootprint();
     }
@@ -232,9 +250,9 @@ const Calculator = () => {
                       <input
                         // required
                         type='text'
-                        value={formData.startLocation}
+                        value={formData.start_location}
                         placeholder='Enter your starting location'
-                        name='startLocation'
+                        name='start_location'
                         onChange={formHandler}
                       ></input>
                       <div className='calc__input-group'>
@@ -242,9 +260,9 @@ const Calculator = () => {
                       <input
                         // required
                         type='text'
-                        value={formData.endLocation}
+                        value={formData.end_location}
                         placeholder='Enter your end location'
-                        name='endLocation'
+                        name='end_location'
                         onChange={formHandler}
                       ></input>
                       </div>

@@ -13,7 +13,7 @@ import { AnimatePresence } from "framer-motion";
 
 // const API_URL = process.env.REACT_APP_API_URL;
 
-function EcoScore() {
+function EcoScore({loggedIn, userName, userId, setLoggedIn, setUserName, setUserId}) {
   
   // const [isloading, setIsLoading] = useState(true);
 
@@ -26,8 +26,11 @@ function EcoScore() {
       <Header
         setShowJoinModal={setShowJoinModal}
         setShowLoginModal={setShowLoginModal}
+        setLoggedIn={setLoggedIn}
+        setUserName={setUserName}
+        setUserId={setUserId}
+        loggedIn={loggedIn}
       />
-
       <AnimatePresence>
         {showJoinModal && (
           <ModalJoinNow
@@ -39,12 +42,18 @@ function EcoScore() {
           <ModalLogin
             setShowJoinModal={setShowJoinModal}
             setShowLoginModal={setShowLoginModal}
+            setLoggedIn={setLoggedIn}
+            setUserName={setUserName}
+            setUserId={setUserId}
           />
         )}
       </AnimatePresence>
 
 
-      <EcoNumber />
+      <EcoNumber 
+        userId={userId}
+        userName={userName}
+      />
       <Leaderboard />
       <Partnerships />
 

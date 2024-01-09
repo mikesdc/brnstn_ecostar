@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8080";
 
-const ModalLogin = ({ setShowJoinModal, setShowLoginModal }) => {
+const ModalLogin = ({ setShowJoinModal, setShowLoginModal, setLoggedIn, setUserId, setUserName }) => {
   // function for button - closing the modal
   const handleClose = () => {
     setLoginFormData(blankFormData);
@@ -42,9 +42,9 @@ const ModalLogin = ({ setShowJoinModal, setShowLoginModal }) => {
     try {
       const response = await axios.post(API_URL+"/users/login", loginFormData);
       console.log(response.data);
-      sessionStorage.setItem("userId", response.data.id);
-      sessionStorage.setItem("userName", response.data.first_name);
-      sessionStorage.setItem("userLoggedIn", true);
+      setUserId(response.data.id);
+      setUserName(response.data.first_name);
+      setLoggedIn(true);
       setShowLoginModal(false);
     } catch (error) {
       console.error("Error posting data:", error);
