@@ -51,9 +51,9 @@ const Leaderboard = () => {
                     alt="user-image"
                   ></img>
                 </div>
-                Tate
+                Cobra
               </div>
-              <div className="main__data point">500,000</div>
+              <div className="main__data point">100,000</div>
             </section>
             <section className="main__table-data dark">
               <div className="main__data one">
@@ -76,7 +76,7 @@ const Leaderboard = () => {
                 </div>
                 JessyJ
               </div>
-              <div className="main__data point">480,000</div>
+              <div className="main__data point">80,221</div>
             </section>
             <section className="main__table-data">
               <div className="main__data one">
@@ -99,7 +99,7 @@ const Leaderboard = () => {
                 </div>
                 JonJones
               </div>
-              <div className="main__data point">420,000</div>
+              <div className="main__data point">67,901</div>
             </section>
             <section className="main__table-data dark">
               <div className="main__data one">
@@ -122,7 +122,7 @@ const Leaderboard = () => {
                 </div>
                 Khamzat
               </div>
-              <div className="main__data point">300,000</div>
+              <div className="main__data point">45,902</div>
             </section>
           </div>
         </div>
