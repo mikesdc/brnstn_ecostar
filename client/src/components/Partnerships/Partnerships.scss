@@ -1,37 +1,18 @@
-@use '../../styles/partials/variables' as *;
-@use '../../styles/partials/mixins' as *;
-@import '../../styles/partials/global';
-
-* h1,
-h2,
-h3,
-a {
-  font-family: 'League Spartan SemiBold';
-  font-weight: 400;
-  font-style: normal;
-  margin: 0;
-  padding: 0;
-}
-
-a:hover,
-a:visited,
-a:link,
-a:active {
-  text-decoration: none;
-  color: #5870a9;
-}
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@import "../../styles/partials/global";
 
 #Tagline {
   color: rgba(62, 63, 77, 0.878);
   font-weight: 600;
   font-size: 2rem;
-  font-family: 'League Spartan Medium';
+  font-family: "League Spartan Medium";
 
   letter-spacing: 0.02rem;
   word-spacing: 0.2rem;
 }
 #GlobalImpact {
-  font-family: 'League Spartan ExtraBold';
+  font-family: "League Spartan ExtraBold";
   padding-left: 10px;
   font-style: italic;
 }
@@ -53,7 +34,7 @@ a:active {
   font-size: 5rem;
   padding-left: 0.2rem;
   padding-right: 0.2rem;
-  font-family: 'League Spartan ExtraBold';
+  font-family: "League Spartan ExtraBold";
 }
 
 #SuperFast {
@@ -62,7 +43,7 @@ a:active {
   font-weight: 600;
   font-size: 5rem;
   padding-bottom: 2rem;
-  font-family: 'League Spartan ExtraBold';
+  font-family: "League Spartan ExtraBold";
 }
 
 // green card
@@ -71,6 +52,25 @@ a:active {
   flex-direction: row;
   background-color: $green-main;
   width: 100vw;
+
+  * h1,
+  h2,
+  h3,
+  a {
+    font-family: "League Spartan SemiBold";
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+  }
+
+  a:hover,
+  a:visited,
+  a:link,
+  a:active {
+    text-decoration: none;
+    color: #5870a9;
+  }
 
   &__card-example {
     // display: flex;

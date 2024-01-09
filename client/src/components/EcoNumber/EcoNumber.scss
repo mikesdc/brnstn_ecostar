@@ -11,6 +11,13 @@ $background-image-EcoNumber: url("../../assets/images/EcoNumberBackground.png");
     flex-direction: row;
     background-color: $green-main;
     width: 100vw;
+
+    a:hover,
+    a:visited,
+    a:link,
+    a:active {
+      text-decoration: none;
+    }
   }
 
   &__card {
@@ -107,6 +114,7 @@ width: 10rem;
     justify-content: center;
     align-items: center;
     line-height: 3rem;
+    color: $green-main-d4;
   }
 }
 

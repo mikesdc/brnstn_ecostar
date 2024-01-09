@@ -5,14 +5,19 @@
 
 $background-image-DataVis: url("../../assets/images/DataVisBackground.png");
 
-
-
 .data-vis {
   &__main {
     display: flex;
     flex-direction: row;
     background-color: $green-main;
     width: 100vw;
+
+    a:hover,
+    a:visited,
+    a:link,
+    a:active {
+      text-decoration: none;
+    }
   }
 
   &__card {
@@ -37,10 +42,10 @@ $background-image-DataVis: url("../../assets/images/DataVisBackground.png");
     }
 
     &-right {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       height: 100%;
       width: 100%;
       background-color: $green-white;
@@ -56,7 +61,7 @@ $background-image-DataVis: url("../../assets/images/DataVisBackground.png");
     height: 10rem;
     padding: 4rem auto;
     color: $green-main-d4;
-   
+
     .subscript {
       font-size: 1.2rem;
       font-weight: 600;
@@ -65,9 +70,8 @@ $background-image-DataVis: url("../../assets/images/DataVisBackground.png");
       left: -0.5rem;
       top: 0.45rem;
       z-index: 0;
+    }
   }
-  
-}
 
   &__data {
     display: flex;
@@ -88,4 +92,3 @@ $background-image-DataVis: url("../../assets/images/DataVisBackground.png");
     }
   }
 }
-
