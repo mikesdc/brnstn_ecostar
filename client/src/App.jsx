@@ -12,6 +12,12 @@ function App() {
   
   const [isloading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    sessionStorage.setItem("userId", 0);
+    sessionStorage.setItem("userName", "EcoStar");
+    sessionStorage.setItem("userLoggedIn", false);
+  });
+
   return (
     <>
       <BrowserRouter>

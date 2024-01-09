@@ -30,6 +30,22 @@ const getSingleUser = (req, res) => {
 		res.status(500).send(`${err}`);
 	  });
   };
+
+  const getTotalCarbon = (req, res) => {
+	knex("commute_tracking as c")
+	  .sum("co2_saved_kg")
+	  .where({ user_id: req.params.id })
+	  .then((item) => {
+		if (item == null) {
+		  res.status(404).send(`User id: ${req.params.id} not found`);
+		} else {
+		  res.status(200).send(item);
+		}
+	  })
+	  .catch((err) => {
+		res.status(500).send(`${err}`);
+	  });
+  };
   
   const createNewRecord = (req, res) => {
 	if (
@@ -58,5 +74,6 @@ const getSingleUser = (req, res) => {
 module.exports = {
 	getSingleUser,
 	createNewRecord,
-	getTotalScore
+	getTotalScore,
+	getTotalCarbon
 };

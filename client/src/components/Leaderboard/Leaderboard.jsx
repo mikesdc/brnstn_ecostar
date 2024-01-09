@@ -1,6 +1,7 @@
 import "./Leaderboard.scss";
 import { useState, useEffect } from "react";
 
+
 const Leaderboard = () => {
   const [isloading, setIsLoading] = useState(true);
   const [showJoinModal, setShowJoinModal] = useState(false);

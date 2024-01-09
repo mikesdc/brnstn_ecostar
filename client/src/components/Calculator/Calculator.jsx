@@ -215,6 +215,7 @@ const Calculator = () => {
                   </div>
                   <div className='calc__input-group'>
                     <label>Commute Distance (KM's): </label>
+                    <label>Commute Distance (KM's): </label>
                     <input
                       required
                       type='number'
@@ -318,4 +319,3 @@ const Calculator = () => {
 };
 
 export default Calculator;
-
