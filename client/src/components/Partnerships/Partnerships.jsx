@@ -13,7 +13,7 @@ const Partnerships = () => {
 
   return (
     // <div className='background' // Repeating Background Image (Leaf)>
-    <div className="partnerships-main">
+    <div className="partnerships-main" id="target-section">
         <div className="partnerships-main__card-example">
       <section className="partnerships__section">
         <div className="partnerships__div-top">
