@@ -32,7 +32,7 @@ const EcoScore = ({isLoggedIn}) => {
           setTotalCarbonSaved(response.data[0]["sum(`co2_saved_kg`)"]);
         }
       });
-  }, []);
+  }, [isLoggedIn]);
 
   return (
     <main className="data-vis__main">
