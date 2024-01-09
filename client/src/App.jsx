@@ -11,19 +11,30 @@ const API_URL = process.env.REACT_APP_API_URL;
 function App() {
   
   const [isloading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    sessionStorage.setItem("userId", 0);
-    sessionStorage.setItem("userName", "EcoStar");
-    sessionStorage.setItem("userLoggedIn", false);
-  });
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [userName, setUserName] = useState("EcoStar");
+  const [userId, setUserId] = useState(0);
 
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/ecoscore" element={<EcoScore />} />
+          <Route path="/" element={<Main 
+            loggedIn={loggedIn}
+            setLoggedIn={setLoggedIn}
+            userName={userName}
+            setUserName={setUserName}
+            userId={userId}
+            setUserId={setUserId}
+          />} />
+          <Route path="/ecoscore" element={<EcoScore 
+              loggedIn={loggedIn}
+              setLoggedIn={setLoggedIn}
+              userName={userName}
+              setUserName={setUserName}
+              userId={userId}
+              setUserId={setUserId}
+          />} />
         </Routes>
       </BrowserRouter>
     </>

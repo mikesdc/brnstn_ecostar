@@ -2,14 +2,22 @@ import "./Header.scss";
 import { NavLink, Link } from "react-router-dom";
 import React from "react";
 import ecoStarLogo from "../../assets/logo/eco-star-logo.png";
-const Header = ({ setShowJoinModal, setShowLoginModal }) => {
-  
+import { useState } from "react";
+const Header = ({ setShowJoinModal, setShowLoginModal, setLoggedIn, setUserId, setUserName, loggedIn }) => {
+  const [loginText, setLoginText] = useState("login");
   // function for login modal
   const handleOpenLogin = () => {
     setShowJoinModal(false);
     setShowLoginModal(true);
   };
 
+  const handleLogout = () => {
+    setShowJoinModal(false);
+    setShowLoginModal(false);
+    setUserId(0);
+    setUserName("EcoStar");
+    setLoggedIn(false);
+  };
 
   return (
     <div className="nav-container">
@@ -40,9 +48,12 @@ const Header = ({ setShowJoinModal, setShowLoginModal }) => {
               </NavLink>
             </li>
             <li className="nav__list-item">
-              <Link className="nav__link" onClick={handleOpenLogin}>
+              {!loggedIn && <Link className="nav__link" onClick={handleOpenLogin}>
                 login
-              </Link>
+              </Link>}
+              {loggedIn && <Link className="nav__link" onClick={handleLogout}>
+                logout
+              </Link>}
             </li>
           </ul>
         </div>

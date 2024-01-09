@@ -14,13 +14,14 @@ import { AnimatePresence } from "framer-motion";
 
 // const API_URL = process.env.REACT_APP_API_URL;
 
-function Main() {
+function Main({loggedIn, userName, userId, setLoggedIn, setUserName, setUserId}) {
 
   // const [isloading, setIsLoading] = useState(true);
   
   const [showJoinModal, setShowJoinModal] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [totalCarbonSaved, setTotalCarbonSaved] = useState("");
+  
 
   // const handleJoinNow = () => {
   //   setShowJoinModal(true);
@@ -62,6 +63,10 @@ function Main() {
       <Header
         setShowJoinModal={setShowJoinModal}
         setShowLoginModal={setShowLoginModal}
+        setLoggedIn={setLoggedIn}
+        setUserName={setUserName}
+        setUserId={setUserId}
+        loggedIn={loggedIn}
       />
       <AnimatePresence>
         {showJoinModal && (
@@ -74,6 +79,9 @@ function Main() {
           <ModalLogin
             setShowJoinModal={setShowJoinModal}
             setShowLoginModal={setShowLoginModal}
+            setLoggedIn={setLoggedIn}
+            setUserName={setUserName}
+            setUserId={setUserId}
           />
         )}
       </AnimatePresence>
@@ -88,8 +96,11 @@ function Main() {
         totalCarbonSaved={totalCarbonSaved}
       />
 
-      <Calculator />
-      <Partnerships />
+      <Calculator 
+        loggedIn={loggedIn}
+        userId={userId}
+      />
+      {/* <Partnerships /> */}
       <Footer />
     </>
   );
