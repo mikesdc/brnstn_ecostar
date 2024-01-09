@@ -89,7 +89,6 @@ function Main() {
       />
 
       <Calculator />
-      <Partnerships />
       <Footer />
     </>
   );
