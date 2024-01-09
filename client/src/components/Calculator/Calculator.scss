@@ -25,7 +25,7 @@
 // --------------- CARD: LEFT SIDE ---------------
 .card-left {
   width: 50%;
-  align-self: center;
+  // align-self: center;
 
   &__inner {
     display: flex;
@@ -94,7 +94,7 @@
     font-weight: 600;
     margin: 1.5rem;
     align-items: center;
-    padding: 1rem;
+    padding: 0.5rem;
     width: 15rem;
     border-radius: 4rem;
     background-color: $green-main;
@@ -104,7 +104,7 @@
 
   &__input-group label {
     font-size: 1.15rem;
-    line-height: 2.5rem;
+    line-height: 1.9rem;
   }
 
   &__input-group input,
@@ -134,7 +134,9 @@
     letter-spacing: 1.2px;
     width: 9rem;
     padding: 0.5rem;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+
     color: white;
     background-color: $green-main;
     border: none;
@@ -150,4 +152,16 @@
 }
 select {
   font-size: 16px;
+}
+
+.mapDiv{
+  height: 10vw;
+  width: 10vw;
+  place-self: self-start;
+
+}
+.mapDiv2{
+  height: 10vw;
+  width: 10vw;
+flex-wrap: wrap;
 }
