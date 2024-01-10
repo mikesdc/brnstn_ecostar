@@ -1,45 +1,4 @@
-# Project Title
-
-Eco-Star
-
-Ensure you are using Node v20.9.0
-
-
-
-Figma File:
-https://www.figma.com/file/aNG7yFEEZpAHkkOgXZ5H9v/Untitled-(Copy)?type=design&node-id=0-1&mode=design
-
-
-
-## Items
-
-### Bilal
-- Header/Navbar
-- Footer
-- Hero
-
-### Michael
-- Basic React-App Set Up (Complete)
-- Modal (Complete)
-- DataVisualizations (Complete)
-
-### Aman
-- Backend
-
-### Arjun
-- Calculator
-
-
-### Pending items:
-- Components
-  - EcoScore
-  - Leaderboard
-  - PartnerStores
-  - CalculatorResults
-  - Resources (Call to Action)
-
-
-
+# Eco-Star
 
 ## Table of Contents
 
@@ -49,6 +8,8 @@ https://www.figma.com/file/aNG7yFEEZpAHkkOgXZ5H9v/Untitled-(Copy)?type=design&no
 - [License](#license)
 
 ## Installation
+
+Ensure you are using Node v20.9.0
 
 ###Database Setup
 
@@ -62,17 +23,12 @@ To set up local MySQL database using the Knex migration and seed files:
   1. Terminal: `npx knex seed:run`
 
 
-## Usage
+## Other Resources
 
-Instructions on how to use the project and any relevant examples.
+Figma File:
+https://www.figma.com/file/aNG7yFEEZpAHkkOgXZ5H9v/Untitled-(Copy)?type=design&node-id=0-1&mode=design
 
-## Contributing
-
-Guidelines for contributing to the project.
-
-## License
-
-Information about the project's license.
+https://docs.google.com/presentation/d/1L9Koqgl8kXTcdNtpzR1L3I0IYcg5kRFPi2gxy-2lEbk/edit#slide=id.g26560d9bab0_0_545
 
 
 # brnstn_ecostar
